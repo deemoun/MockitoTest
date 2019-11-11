@@ -4,12 +4,20 @@ package com.example.mockitotest;
 import org.mockito.Mockito;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static org.junit.Assert.*;
 
 public class ExampleUnitTest {
+
+    @DataProvider(name = "Authentication")
+
+    public static Object[][] credentials() {
+
+        return new Object[][] { { "testuser_1", "Test@123" }, { "testuser_1", "Test@123" }};
+    }
 
     @BeforeSuite
     public void setUp(){
@@ -21,6 +29,11 @@ public class ExampleUnitTest {
         assertEquals(20,20);
     }
 
+    @Test(dataProvider = "Authentication")
+    public void testDataProvider(String user, String password){
+        System.out.println("Username is: " + user);
+        System.out.println("Password is: " + password);
+    }
 
 
     @Test
