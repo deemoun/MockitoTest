@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+<parameter name="name" value="John Malkovich"/>
+  <listeners>
+    <listener class-name="com.example.mockitotest.ListenerClass"/>
+  </listeners>
+  <test name="MockitoTest">
+    <classes>
+      <class name="com.example.mockitotest.ExampleUnitTest"/>
+    </classes>
+  </test>
+</suite>
